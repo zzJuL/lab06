@@ -2,6 +2,38 @@
 
 // TODO: write your code here
 
+#define MAX_NUM_EMPLOYEE 3
+
+// Define the struct Employee
+struct Employee 
+{
+    int employeeID;
+    char name[50];
+    float salary;
+};
+
+// Function prototypes
+
+float averageSalary(struct Employee employee[]) {
+    float totalSalary = 0.0;
+    for (int i = 0; i < MAX_NUM_EMPLOYEE; i++) {
+        totalSalary += employee[i].salary;
+    }
+    return totalSalary / MAX_NUM_EMPLOYEE;
+}
+int highestSalary(struct Employee employee[]) {
+    int highestIndex = 0;
+    float maxSalary = employee[0].salary;
+    
+    for (int i = 1; i < MAX_NUM_EMPLOYEE; i++) {
+        if (employee[i].salary > maxSalary) {
+            maxSalary = employee[i].salary;
+            highestIndex = i;
+        }
+    }
+    return highestIndex;
+}
+
 // DO NOT change the code below
 void fillInformation( struct Employee employees[] )
 {
